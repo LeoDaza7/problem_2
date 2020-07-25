@@ -1,6 +1,6 @@
 # problem_2
 
-###Description
+### Description
 
 The application has the objective of calculate the distance between a student, and his classroom using coordinates.
 To determine if the student is inside the classroom.
