@@ -87,9 +87,9 @@ public class Problem2ApplicationTest {
     @Test
     public void testExample3(){
 
-        Student johnWilson = new Student("John Wilson", 35.069849, -119.443539);
-        Student janeGraham = new Student("Jane Graham", 35.069901, -119.441562);
-        Student pamBam = new Student("Pam Bam", 35.071523, -119.441171);
+        Student johnWilson = new Student("John Wilson", 34.069949, -118.443939);
+        Student janeGraham = new Student("Jane Graham", 34.067001, -118.441962);
+        Student pamBam = new Student("Pam Bam", 34.071923, -118.441971);
         Classroom principlesOfComputational = new Classroom("Principles of computational geo-location analysis", 34.069140, -118.442689);
         Classroom sedimentaryPetrology = new Classroom("Sedimentary Petrology", 34.069585, -118.441878);
         Classroom introductoryPsychobiology = new Classroom("Introductory Psychobiology", 34.069742, -118.441312);
