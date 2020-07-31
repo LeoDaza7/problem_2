@@ -21,20 +21,19 @@ public class Problem2Application {
     }
 
     public static boolean studentInClass(Student student, Classroom classroom) {
-        final int earthRadius = 6371;
-        final double classArea = Math.sqrt(Math.pow(10,2) * 2);
-        double distanceBetweenLatitudes = Math.toRadians(student.getLatitude() - classroom.getLatitude());
-        double distanceBetweenLongitudes = Math.toRadians(student.getLongitude() - classroom.getLongitude());
-        double a = Math.sin(distanceBetweenLatitudes/2) * Math.sin(distanceBetweenLatitudes/2)
+        final int earthRadiusInMeters = 6371000;
+        final int classroomCenterToEdgesMinDistance = 10;
+        final int ONE = 1;
+        final int TWO = 2;
+        final double classroomCenterToEdgesMaxDistance = Math.sqrt(Math.pow(classroomCenterToEdgesMinDistance,TWO) * TWO);
+        final double distanceBetweenLatitudes = Math.toRadians(student.getLatitude() - classroom.getLatitude());
+        final double distanceBetweenLongitudes = Math.toRadians(student.getLongitude() - classroom.getLongitude());
+        final double a = Math.sin(distanceBetweenLatitudes/TWO) * Math.sin(distanceBetweenLatitudes/TWO)
                 + Math.cos(Math.toRadians(classroom.getLatitude()) * Math.cos(Math.toRadians(student.getLatitude())))
-                * Math.sin(distanceBetweenLongitudes/2) * Math.sin(distanceBetweenLongitudes/2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        double distanceBetweenClassroomAndStudent = earthRadius * c * 1000;
-        if (distanceBetweenClassroomAndStudent <= classArea){
-            return true;
-        } else {
-            return false;
-        }
+                * Math.sin(distanceBetweenLongitudes/TWO) * Math.sin(distanceBetweenLongitudes/TWO);
+        final double c = TWO * Math.atan2(Math.sqrt(a), Math.sqrt(ONE-a));
+        final double distanceBetweenClassroomCenterAndStudent = earthRadiusInMeters * c;
+        return (distanceBetweenClassroomCenterAndStudent <= classroomCenterToEdgesMaxDistance);
     }
 
 }
